@@ -1,0 +1,61 @@
+def sistema_de_inventario():
+    inventario = {}
+
+    while True:
+        print("\nSistema de Inventario")
+        print("1. agregar producto")
+        print("2. eliminar producto")
+        print("3. mostrar inventario")
+        print("4. actualizar cantidad de producto")
+        print("5. salir")
+        opcion = input("seleccione una opcion (1-5): ")
+
+        if opcion == "1":
+            nombre = input("ingrese el nombre del producto: ")
+            if nombre in inventario:
+                print("el producto ya existe en el inventario, use la opcion 4 para actualizar")
+            else:
+                try:
+                    cantidad = int(input("ingrese la cantidad del producto: "))
+                    inventario[nombre] = cantidad
+                    print("producto agregado al inventario")
+                except ValueError:
+                    print("error: la cantidad debe ser un numero entero")
+
+        elif opcion == "2":
+            nombre = input("ingrese el nombre, debe ser un producto existente en el inventario: ")
+            if nombre in inventario:
+                del inventario[nombre]
+                print("producto eliminado del inventario")
+            else:
+                print("error: el producto no existe en el inventario")
+
+        elif opcion == "3":
+            if inventario:
+                print("inventario:")
+                for nombre, cantidad in inventario.items():
+                    print(f"{nombre}: {cantidad}")
+            else:
+                print("el inventario esta vacio")
+
+        elif opcion == "4":
+            nombre = input("ingrese el nombre del producto a actualizar: ")
+            if nombre in inventario:
+                try:
+                    cantidad = int(input("ingrese la nueva cantidad del producto: "))
+                    inventario[nombre] = cantidad
+                    print("cantidad actualizada")
+                except ValueError:
+                    print("error: la cantidad debe ser un numero entero")
+            else:
+                print("error: el producto no existe en el inventario")
+
+        elif opcion == "5":
+            print("saliendo del sistema de inventario")
+            break
+
+        else:
+            print("opcion invalida, por favor seleccione una opcion valida (1-5)")
+
+
+sistema_de_inventario()

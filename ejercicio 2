@@ -1,0 +1,21 @@
+def contarvocalesyconsonantes(texto):
+    vocales = "aeiouáéíóúü"
+    consonantes = "bcdfghjklmnñpqrstvwxyz"
+
+    cant_vocales = 0
+    cant_consonantes = 0
+    for letra in texto.lower():
+        if letra in vocales:
+            cant_vocales += 1
+        elif letra in consonantes:
+            cant_consonantes += 1
+
+    return cant_vocales, cant_consonantes
+
+
+frase = input("Ingrese una frase: ")
+v, c = contarvocalesyconsonantes(frase)
+
+print("Cantidad de vocales:", v)
+print("Cantidad de consonantes:", c)
+

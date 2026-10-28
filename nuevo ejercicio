@@ -1,0 +1,9 @@
+edad=int(input("ingrese su edad"))
+tiene_boleta=input("¿tiene boleta? (si/no):").strip().lower()
+if edad<18:
+    print ("no puede ingresar por ser menor de edad")
+elif edad>=18 and (tiene_boleta != "si"):
+    print( " no puede ingresar por no tener boleta")
+else:
+    print ("puede ingresar")
+
